@@ -1,0 +1,86 @@
+/* ensure all pages have Bootstrap CSS */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.md-container {
+  max-width: 800px;
+  padding-top: 2rem;
+}
+
+.sml-card {
+  width: 22rem;
+  margin: 1rem 0;
+}
+
+.cntr-footer {
+  height: 80px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid #ccc;
+}
+
+.sml-logo {
+  height: 1em;
+  margin-left: 10px;
+}
+
+.bannerImg{
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) !important;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.headerContainer {
+  z-index: 1;
+}
+
+.alertText {
+  font-weight: bold;
+  color: #19B30C;
+}
+
+.alertButton {
+  border-radius: 10px;
+}
+
+.dropdown-menu.show {
+  width: 100vw;
+  padding: 0;
+}
+
+.dropdown, .btn-group {
+  position: static;
+}
+
+.bannerImg img {
+  filter: brightness(30%);
+}
+
+.searchBar {
+  top: 12vw;
+  z-index: 2;
+}
+
+.bannerTextContainer {
+  top: 30vw;
+  z-index: 2;
+  opacity: 70%;
+
+}
+
+.bannerText {
+  border-top-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  margin: 0 50px;
+}
+
+.footerImgHolder > span {
+  position: absolute !important;
+  bottom: 50px;
+  left: 20px;
+}
+
+.footer a{
+  color: white;
+}
