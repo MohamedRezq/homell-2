@@ -1,12 +1,14 @@
 import Image from "next/image";
 import { Row, Col } from "react-bootstrap";
 import bannerImg from "assets/banner.jpg";
+import footer from "assets/footer.png";
+import footerSky from "assets/footerSky.jpg";
 
 const Footer = () => {
   return (
     <div
-      className="bg-dark py-5 text-white footer"
-      style={{ marginTop: "150px" }}
+      className="bg-dark pt-5 text-white footer"
+      style={{ marginTop: "150px", backgroundImage: `url(${footerSky.src})`}}
     >
       <Row xs={1} lg={4}>
         <Col className="position-relative footerImgHolder d-none d-lg-block">
@@ -23,6 +25,12 @@ const Footer = () => {
             <div className="align-self-center my-3 my-lg-0">Social Icons</div>
           </div>
         </Col>
+        
+        <Col lg={3}></Col>
+        <Col lg={6} className="d-flex justify-content-center pt-5 mt-5">
+        <Image src={footer} />
+        </Col>
+        <Col lg={3}></Col>
       </Row>
     </div>
   );

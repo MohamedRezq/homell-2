@@ -1,54 +1,15 @@
-import {
-  Row,
-  Col,
-  Card,
-  Pagination
-} from "react-bootstrap";
-import bannerImg from "assets/banner.jpg";
-import Image from "next/image";
+import { Row, Col, Pagination } from "react-bootstrap";
+import HomeCard from "components/HomeCard";
+import FilterBar from "components/FilterBar";
 
 const CardSection = () => {
   return (
-    <div className="my-5">
+    <div className="my-5 py-5">
+      <FilterBar />
       <Row xs={1} md={2} lg={3} className="g-2">
         {Array.from({ length: 15 }).map((_, idx) => (
           <Col>
-            <Card className="my-3">
-              <Card.Img variant="top" src={bannerImg.src} />
-              <Card.Body>
-                <Card.Title
-                  style={{ fontWeight: "bold" }}
-                  className="d-flex justify-content-between border-bottom border-1 pb-2"
-                >
-                  <div>799,000 EGP</div>
-                  <div style={{ fontSize: "0.75rem" }} className="my-auto">
-                    2 <i class="fas fa-bath mx-1"></i> 3{" "}
-                    <i class="fas fa-bed mx-1 mr-2"></i> 250{" "}
-                    <span>
-                      m<sup>2</sup>
-                    </span>
-                  </div>
-                </Card.Title>
-                <Card.Text>
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </Card.Text>
-              </Card.Body>
-              <Card.Footer className="d-flex align-content-center">
-                <div className="mx-2 d-flex align-content-center">
-                  <Image
-                    src={bannerImg}
-                    width={30}
-                    height={30}
-                    className="rounded-circle"
-                  />
-                </div>
-                <div className="text-muted py-auto my-auto">
-                  Talaat Mostafa Group
-                </div>
-              </Card.Footer>
-            </Card>
+            <HomeCard />
           </Col>
         ))}
       </Row>
