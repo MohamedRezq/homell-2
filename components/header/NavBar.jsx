@@ -54,8 +54,7 @@ const NavBar = () => {
                   variant="info"
                   size="lg"
                 >
-                  <Dropdown.Item eventKey="1">Dropdown link</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">Dropdown link</Dropdown.Item>
+                  <DropDownContent forWhat="Rent"/>
                 </DropdownButton>
                 <DropdownButton
                   as={ButtonGroup}
@@ -64,15 +63,13 @@ const NavBar = () => {
                   variant="info"
                   size="lg"
                 >
-                  <Dropdown.Item eventKey="1">Dropdown link</Dropdown.Item>
-                  <Dropdown.Item eventKey="2">Dropdown link</Dropdown.Item>
                 </DropdownButton>
               </ButtonGroup>
             </div>
             <div className="d-flex align-items-center h-100">
               <div className="d-flex">
-                <div className="px-2 my-auto"><Link href=""><a className="text-white">Login</a></Link></div>
-                <Link href=""><a><Button>Register</Button></a></Link>
+                <div className="px-2 my-auto"><Link href=""><a className="text-white" style={{textDecoration: "none"}}>Log In</a></Link></div>
+                <Link href=""><a><Button variant="dark">Register</Button></a></Link>
               </div>
             </div>
           </Navbar.Collapse>

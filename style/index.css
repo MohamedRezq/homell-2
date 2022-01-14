@@ -37,8 +37,8 @@
 }
 
 .alertText {
-  font-weight: bold;
-  color: #19B30C;
+  font-weight: normal;
+  color: black;
 }
 
 .alertButton {
@@ -190,4 +190,33 @@ nav.socialBar ul li:hover a span {
 
 .filterDrop .list-group-item {
   border: none;
+}
+.dropdown-toggle::after {
+  content: "";
+  display: none;
+}
+
+.pagination li a{
+ 
+}
+
+.pagination li:nth-child(1) a{
+  border-bottom-left-radius: 25px !important;
+  border-top-left-radius: 25px !important;
+  font-weight: bold;
+}
+
+.pagination li:last-child a{
+  border-bottom-right-radius: 25px !important;
+  border-top-right-radius: 25px !important;
+  font-weight: bold;
+}
+
+.propDataTable td {
+  font-size: 11pt;
+  padding: 5px 5px;
+}
+
+.propDataTable tr td:first-child {
+  font-weight: bold;
 }

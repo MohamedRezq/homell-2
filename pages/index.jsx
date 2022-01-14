@@ -1,12 +1,19 @@
 import FloatingSocialBar from "components/FloatingSocialBar";
 import InputRange from "components/InputRange";
 import Head from "next/head";
+import { useEffect } from "react";
 import { Container, Row, Card, Button } from "react-bootstrap";
 import CardSection from "sections/CardSection";
 import FeatureCarousel from "sections/FeatureCarousel";
 import FeatureSection from "sections/FeatureSection";
+import { getPropsForSale } from "utils/bayutAPI";
+import { storeForSaleProps } from "store/apiValues/apiValuesSlice";
+import { connect } from "react-redux";
 
-export default function Home() {
+const Home = ({ propsForSale, storeForSaleProps }) => {
+  useEffect(() => {
+    storeForSaleProps(propsForSale.hits)
+  }, [])
   return (
     <Container className="lg-container">
       <Head>
@@ -28,9 +35,21 @@ export default function Home() {
         <FloatingSocialBar />
         <CardSection />
         <FeatureCarousel />
-        <InputRange />
-        <FeatureSection />
       </div>
     </Container>
   );
+}
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = { storeForSaleProps };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
+
+
+export async function getStaticProps() {
+  const propForSale = await getPropsForSale();
+  return {
+    props: {
+      propsForSale: propForSale,
+    },
+  };
 }

@@ -1,39 +1,40 @@
-import { Row, Col, Pagination } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import HomeCard from "components/HomeCard";
 import FilterBar from "components/FilterBar";
+import { connect } from "react-redux";
+import PaginationBar from "components/PaginationBar";
 
-const CardSection = () => {
+const CardSection = ({ propsForShow, currentPage }) => {
   return (
     <div className="my-5 py-5">
       <FilterBar />
-      <Row xs={1} md={2} lg={3} className="g-2">
-        {Array.from({ length: 15 }).map((_, idx) => (
+      <Row xs={1} lg={2} className="g-2">
+        {propsForShow.map((prop, i) => (
           <Col>
-            <HomeCard />
+            <HomeCard
+              price={prop.price}
+              title={prop.title}
+              rooms={prop.rooms}
+              baths={prop.baths}
+              coverPhoto={prop.coverPhoto.url}
+              area={prop.area}
+              address={prop.location}
+              date={prop.createdAt}
+            />
           </Col>
         ))}
       </Row>
       <div className="paginationDiv d-flex justify-content-center my-5 align-content-center mx-5 mx-md-1">
-        <Pagination>
-          <Pagination.First />
-          <Pagination.Prev />
-          <Pagination.Item>{1}</Pagination.Item>
-          <Pagination.Ellipsis />
-
-          <Pagination.Item>{10}</Pagination.Item>
-          <Pagination.Item>{11}</Pagination.Item>
-          <Pagination.Item active>{12}</Pagination.Item>
-          <Pagination.Item>{13}</Pagination.Item>
-          <Pagination.Item>{14}</Pagination.Item>
-
-          <Pagination.Ellipsis />
-          <Pagination.Item>{20}</Pagination.Item>
-          <Pagination.Next />
-          <Pagination.Last />
-        </Pagination>
+        <PaginationBar curntPage={currentPage} />
       </div>
     </div>
   );
 };
 
-export default CardSection;
+const mapStateToProps = (state) => ({
+  propsForShow: state.apiValues.propsForSale,
+  currentPage: state.apiValues.currentPage,
+});
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CardSection);

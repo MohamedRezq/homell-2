@@ -1,47 +1,24 @@
 import { Carousel,  } from "react-bootstrap";
 import banner from 'assets/banner.jpg';
 
-const FeatureCarousel = () => {
+const FeatureCarousel = ({ images }) => {
+  console.log("images: ", images)
   return (
     <div>
       <Carousel fade>
-        <Carousel.Item>
+        {images.map((img, i) => (
+          <Carousel.Item key={i}>
           <img
             className="d-block w-100"
-            src={banner.src}
-            alt="First slide"
+            src={img.url}
+            alt={img.title}
+            height={500}
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h4>{img.title}</h4>
           </Carousel.Caption>
         </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={banner.src}
-            alt="Second slide"
-          />
-
-          <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src={banner.src}
-            alt="Third slide"
-          />
-
-          <Carousel.Caption>
-            <h3>Third slide label</h3>
-            <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-            </p>
-          </Carousel.Caption>
-        </Carousel.Item>
+        ))}
       </Carousel>
     </div>
   );

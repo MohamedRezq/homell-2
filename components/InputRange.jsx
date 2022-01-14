@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
-const InputRange = () => {
-  const STEP = 1000;
-  const MIN = 100000;
-  const MAX = 1500000;
-  const [values, setValues] = useState([150000, 1000000]);
+const InputRange = ({min=100000, max=1500000}) => {
+  const MIN = min.toFixed(0);
+  const MAX = max.toFixed(0);
+  let STEP=  1;
+  if ((max-min)>1000){STEP = 100;}
+  else if ((max-min) > 100){STEP = 10;}
+  else {STEP = 1;}
+  const [values, setValues] = useState([MIN, MAX]);
   return (
     <div
       style={{

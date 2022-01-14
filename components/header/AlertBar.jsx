@@ -14,17 +14,25 @@ const AlertBar = () => {
       >
         {/*<Alert.Heading>Oh snap! You got an error!</Alert.Heading>*/}
         <Link href="#">
-          <a>
-            <h6 className="text-center alertText mb-0 fs-6">
-              <p className="fw-bolder d-inline blink_me fw-bolder mx-2">
-                7.5 %
-              </p>
-              HOMELL is now offering the best home loans.
-              <span className="d-none d-md-inline">
-                <Button variant="outline-success" className="mx-3 alertButton" size="sm">
-                  Know More
-                </Button>
+          <a href="">
+            <h6
+              className="text-center alertText mb-0 fs-6"
+              style={{ fontSize: "10pt", textDecoration: "underline" }}
+            >
+              <span
+                href=""
+                style={{ fontWeight: "bold", color: "black", fontSize: "12pt" }}
+              >
+                Note:{" "}
               </span>
+              This website is a project by{" "}
+              <a
+                href=""
+                style={{ fontWeight: "bold", color: "black", fontSize: "12pt" }}
+              >
+                REZQ (Web Developer)
+              </a>{" "}
+              and it is not intended for any commercial purposes.
             </h6>
           </a>
         </Link>

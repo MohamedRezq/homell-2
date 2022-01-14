@@ -2,13 +2,24 @@ import bannerImg from "assets/banner.jpg";
 import Image from "next/image";
 import { Button, Card } from "react-bootstrap";
 import Link from "next/link";
+import dateFormat, { masks } from "dateformat";
 
-const HomeCard = () => {
+const HomeCard = ({
+  price,
+  title,
+  address,
+  rooms,
+  baths,
+  coverPhoto,
+  area,
+  date,
+}) => {
+  let publishDate = new Date(date);
   return (
     <Card className="my-3">
       <Link href="">
         <a>
-          <Card.Img variant="top" src={bannerImg.src} />
+          <Card.Img variant="top" src={coverPhoto} style={{height: "300px"}} />
         </a>
       </Link>
       <Card.Body>
@@ -16,18 +27,29 @@ const HomeCard = () => {
           style={{ fontWeight: "bold" }}
           className="d-flex justify-content-between border-bottom border-1 pb-2"
         >
-          <div style={{ fontSize: "13pt" }}>22,799,000 EGP</div>
+          <div style={{ fontSize: "13pt" }}>
+            {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} UAD
+          </div>
           <div style={{ fontSize: "0.75rem" }} className="my-auto">
-            2 <i class="fas fa-bath mx-1"></i> 3{" "}
-            <i class="fas fa-bed mx-1 mr-2"></i> 250{" "}
+            {baths} <i class="fas fa-bath mx-1"></i> {rooms}{" "}
+            <i class="fas fa-bed mx-1 mr-2"></i> {area.toFixed(0)}{" "}
             <span>
               m<sup>2</sup>
             </span>
           </div>
         </Card.Title>
-        <Card.Text>
-          This is a longer card with supporting text below as a natural lead-in
-          to additional content. This content is a little bit longer.
+        <Card.Text style={{ fontSize: "12pt", fontWeight: "bold" }}>
+          {title}
+        </Card.Text>
+        <Card.Text className="d-flex justify-content-between" style={{ fontSize: "8pt" }}>
+          <div>
+            {address.map((loc, i) => (
+              <span>{loc.name}, </span>
+            ))}
+          </div>
+          <div className="my-auto px-2" style={{whiteSpace: "nowrap"}}>
+            {dateFormat(publishDate, "dd mmm")}
+          </div>
         </Card.Text>
       </Card.Body>
 
@@ -47,14 +69,14 @@ const HomeCard = () => {
           </div>
           <Link href="">
             <a className="text-muted py-auto my-auto">
-              <div className="text-muted py-auto my-auto" style={{fontSize: "12pt"}}>
-                Talaat Mostafa Group
+              <div
+                className="text-muted py-auto my-auto"
+                style={{ fontSize: "10pt" }}
+              >
+                Development Group
               </div>
             </a>
           </Link>
-        </div>
-        <div className="homeCardSellerType">
-          <Button disabled size="sm">Developers</Button>
         </div>
       </Card.Footer>
     </Card>

@@ -1,6 +1,6 @@
 import { Col, ListGroup, Row } from "react-bootstrap";
 
-const DropDownContent = () => {
+const DropDownContent = ({forWhat="Sale"}) => {
   return (
     <div className="d-flex">
       <ListGroup horizontal="md" className="d-flex-column d-md-flex-row w-100">
@@ -8,7 +8,7 @@ const DropDownContent = () => {
           <Col xs={12} lg={4} className="px-0 py-0">
             <ListGroup.Item className="d-flex flex-column px-5 py-4">
               <div className="py-2" style={{ fontWeight: "bold" }}>
-                Homes For Sale
+                Poperties For {forWhat}
               </div>
               <Row xs={1} sm={2}>
                 <Col className="d-flex flex-column">
@@ -22,18 +22,18 @@ const DropDownContent = () => {
                     <a href="">Villas</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Pent Houses</a>
+                    <a href="">Penthouses</a>
                   </div>
                 </Col>
                 <Col className="d-flex flex-column">
                   <div className="py-1">
-                    <a href="">Apartments</a>
+                    <a href="">Shops</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Townhouses</a>
+                    <a href="">Warehouses</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Villas</a>
+                    <a href="">Labour camps</a>
                   </div>
                   <div className="py-1" style={{ fontWeight: "bold" }}>
                     <a href="">
@@ -52,69 +52,69 @@ const DropDownContent = () => {
               <Row xs={1} sm={3} lg={5}>
                 <Col className="d-flex flex-column">
                   <div className="py-1">
-                    <a href="">Apartments</a>
+                    <a href="">Dubai</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Villas</a>
+                    <a href="">Abu Dhabi</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Duplexes</a>
+                    <a href="">Sharjah</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Duplexes</a>
-                  </div>
-                </Col>
-                <Col className="d-flex flex-column">
-                  <div className="py-1">
-                    <a href="">Apartments</a>
-                  </div>
-                  <div className="py-1">
-                    <a href="">Villas</a>
-                  </div>
-                  <div className="py-1">
-                    <a href="">Duplexes</a>
-                  </div>
-                  <div className="py-1">
-                    <a href="">Duplexes</a>
+                    <a href="">Al Ain</a>
                   </div>
                 </Col>
                 <Col className="d-flex flex-column">
                   <div className="py-1">
-                    <a href="">Apartments</a>
+                    <a href="">Ajman</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Villas</a>
+                    <a href="">Ras Al Khaimah</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Duplexes</a>
+                    <a href="">Fujairah</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Duplexes</a>
-                  </div>
-                </Col>
-                <Col className="d-flex flex-column">
-                  <div className="py-1">
-                    <a href="">Apartments</a>
-                  </div>
-                  <div className="py-1">
-                    <a href="">Villas</a>
-                  </div>
-                  <div className="py-1">
-                    <a href="">Duplexes</a>
-                  </div>
-                  <div className="py-1">
-                    <a href="">Duplexes</a>
+                    <a href="">Umm al-Quwain</a>
                   </div>
                 </Col>
                 <Col className="d-flex flex-column">
                   <div className="py-1">
-                    <a href="">Apartments</a>
+                    <a href="">Dibba Al-Fujairah</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Villas</a>
+                    <a href="">Khor Fakkan</a>
                   </div>
                   <div className="py-1">
-                    <a href="">Duplexes</a>
+                    <a href="">Kalba</a>
+                  </div>
+                  <div className="py-1">
+                    <a href="">Jebel Ali</a>
+                  </div>
+                </Col>
+                <Col className="d-flex flex-column">
+                  <div className="py-1">
+                    <a href="">Madinat Zayed</a>
+                  </div>
+                  <div className="py-1">
+                    <a href="">Ruwais</a>
+                  </div>
+                  <div className="py-1">
+                    <a href="">Liwa Oasis</a>
+                  </div>
+                  <div className="py-1">
+                    <a href="">Dhaid</a>
+                  </div>
+                </Col>
+                <Col className="d-flex flex-column">
+                  <div className="py-1">
+                    <a href="">Ghayathi</a>
+                  </div>
+                  <div className="py-1">
+                    <a href="">Ar-Rams</a>
+                  </div>
+                  <div className="py-1">
+                    <a href="">Dibba Al-Hisn</a>
                   </div>
                   <div className="py-1" style={{ fontWeight: "bold" }}>
                     <a href="">

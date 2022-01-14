@@ -1,6 +1,6 @@
 const FloatingSocialBar = () => {
   return (
-    <div className="position-fixed" style={{zIndex: 2, left: 0, top: "20vh"}}>
+    <div className="position-fixed d-none d-md-block" style={{zIndex: 2, left: 0, top: "20vh"}}>
       <nav className="socialBar">
         <ul>
           <li>

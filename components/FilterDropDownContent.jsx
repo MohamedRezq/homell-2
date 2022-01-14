@@ -1,7 +1,17 @@
 import { Button, Col, ListGroup, Row } from "react-bootstrap";
 import InputRange from "./InputRange";
+import { connect } from "react-redux";
 
-const FilrerDropDownContent = () => {
+const FilrerDropDownContent = ({
+  minBaths,
+  maxBaths,
+  minRooms,
+  maxRooms,
+  minPrice,
+  maxPrice,
+  minArea,
+  maxArea,
+}) => {
   return (
     <div className="d-flex px-5 filterDrop">
       <ListGroup className="d-flex-column d-md-flex-row w-100">
@@ -11,35 +21,35 @@ const FilrerDropDownContent = () => {
               <div className="py-2" style={{ fontWeight: "bold" }}>
                 Price (EGP)
               </div>
-              <InputRange />
+              <InputRange min={minPrice} max={maxPrice} />
             </ListGroup.Item>
           </Col>
           <Col xs={12} md={6} xl={4} className="px-0 py-0">
-          <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
+            <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
               <div className="py-2" style={{ fontWeight: "bold" }}>
                 Area (m{<sup>2</sup>})
               </div>
-              <InputRange />
+              <InputRange min={minArea} max={maxArea} />
             </ListGroup.Item>
           </Col>
           <Col xs={12} md={6} xl={4} className="px-0 py-0">
-          <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
+            <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
               <div className="py-2" style={{ fontWeight: "bold" }}>
                 Rooms (no.)
               </div>
-              <InputRange />
+              <InputRange min={minRooms} max={maxRooms} />
             </ListGroup.Item>
           </Col>
           <Col xs={12} md={6} xl={4} className="px-0 py-0">
-          <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
+            <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
               <div className="py-2" style={{ fontWeight: "bold" }}>
                 Bathrooms (no.)
               </div>
-              <InputRange />
+              <InputRange min={minBaths} max={maxBaths} />
             </ListGroup.Item>
           </Col>
           <Col xs={12} md={6} xl={4} className="px-0 py-0">
-          <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
+            <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
               <div className="py-2" style={{ fontWeight: "bold" }}>
                 Furnishing Status
               </div>
@@ -68,8 +78,10 @@ const FilrerDropDownContent = () => {
             </ListGroup.Item>
           </Col>
           <Col xs={12} md={6} xl={4} className="px-0 py-0">
-          <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
-              <Button variant="dark" className="mx-5 mb-5">Apply Filters</Button>
+            <ListGroup.Item className="d-flex flex-column px-sm-5 py-4">
+              <Button variant="dark" className="mx-5 mb-5">
+                Apply Filters
+              </Button>
             </ListGroup.Item>
           </Col>
         </Row>
@@ -77,5 +89,19 @@ const FilrerDropDownContent = () => {
     </div>
   );
 };
+const mapStateToProps = (state) => ({
+  minRooms: state.apiValues.minRooms,
+  maxRooms: state.apiValues.maxRooms,
+  minArea: state.apiValues.minArea,
+  maxArea: state.apiValues.maxArea,
+  minBaths: state.apiValues.minBaths,
+  maxBaths: state.apiValues.maxBaths,
+  minPrice: state.apiValues.minPrice,
+  maxPrice: state.apiValues.maxPrice,
+});
+const mapDispatchToProps = {};
 
-export default FilrerDropDownContent;
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilrerDropDownContent);
