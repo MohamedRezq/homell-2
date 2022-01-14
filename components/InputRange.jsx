@@ -2,16 +2,17 @@ import { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
 const InputRange = () => {
-  const STEP = 0.1;
-  const MIN = 0;
-  const MAX = 100;
-  const [values, setValues] = useState([25, 75]);
+  const STEP = 1000;
+  const MIN = 100000;
+  const MAX = 1500000;
+  const [values, setValues] = useState([150000, 1000000]);
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
+        width: "100%"
       }}
     >
       <Range
@@ -29,7 +30,7 @@ const InputRange = () => {
             onTouchStart={props.onTouchStart}
             style={{
               ...props.style,
-              height: "36px",
+              height: "20px",
               display: "flex",
               width: "100%",
             }}
@@ -58,9 +59,9 @@ const InputRange = () => {
             {...props}
             style={{
               ...props.style,
-              height: "42px",
-              width: "42px",
-              borderRadius: "4px",
+              height: "25px",
+              width: "25px",
+              borderRadius: "24px",
               backgroundColor: "#FFF",
               display: "flex",
               justifyContent: "center",
@@ -78,8 +79,18 @@ const InputRange = () => {
           </div>
         )}
       />
-      <output style={{ marginTop: "30px" }} id="output">
-        {values[0].toFixed(1)} - {values[1].toFixed(1)}
+      <output style={{ marginTop: "30px", fontSize: "10pt" }} id="output">
+        <span
+          className="bg-info p-2 rounded-pill"
+        >
+          Min: {values[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </span>
+        <i class="fas fa-long-arrow-alt-right mx-3"></i>
+        <span
+          className="bg-info p-2 rounded-pill"
+        >
+          Max: {values[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        </span>
       </output>
     </div>
   );

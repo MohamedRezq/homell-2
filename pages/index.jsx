@@ -25,7 +25,7 @@ export default function Home() {
         ></script>
       </Head>
       <div className="mainContainer px-2 position-relative">
-        {/*<FloatingSocialBar />*/}
+        <FloatingSocialBar />
         <CardSection />
         <FeatureCarousel />
         <InputRange />

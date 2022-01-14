@@ -1,5 +1,5 @@
 import { Button, DropdownButton, Dropdown, ButtonGroup } from "react-bootstrap";
-import DropDownContent from "./header/DropDownContent";
+import FilterDropDownContent from "./FilterDropDownContent";
 
 const FilterBar = () => {
   return (
@@ -42,7 +42,7 @@ const FilterBar = () => {
             size="md"
             alignRight="true"
           >
-            <DropDownContent />
+            <FilterDropDownContent />
           </DropdownButton>
         </div>
       </div>

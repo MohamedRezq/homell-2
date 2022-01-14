@@ -11,12 +11,6 @@ const FloatingSocialBar = () => {
           </li>
           <li>
             <a href="#">
-              <i class="fab fa-twitter"></i>
-              <span>Twitter</span>
-            </a>
-          </li>
-          <li>
-            <a href="#">
               <i class="fab fa-instagram"></i>
               <span>Instagram</span>
             </a>

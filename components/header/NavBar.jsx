@@ -7,13 +7,13 @@ import {
   DropdownButton,
   Button,
   Dropdown,
+  DropdownToggle
 } from "react-bootstrap";
 import DropDownContent from "./DropDownContent";
 import SearchBar from "./SearchBar";
 import usaFlag from "assets/usa_flag.png";
 import uaeFlag from "assets/uae_flag.png";
 import Image from "next/image";
-import DropdownToggle from "react-bootstrap/esm/DropdownToggle";
 import Link from "next/link";
 
 const NavBar = () => {
