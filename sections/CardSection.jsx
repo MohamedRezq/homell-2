@@ -20,6 +20,7 @@ const CardSection = ({ propsForShow, currentPage }) => {
               area={prop.area}
               address={prop.location}
               date={prop.createdAt}
+              id={prop.externalID}
             />
           </Col>
         ))}

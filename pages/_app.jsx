@@ -6,10 +6,11 @@ import { Provider } from "react-redux";
 import Layout from "components/layout";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { SessionProvider } from "next-auth/react";
 
 class App extends NextApp {
   static async getInitialProps({ Component, ctx }) {
-    let pageProps = {};
+    let pageProps = { };
 
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
@@ -23,13 +24,15 @@ class App extends NextApp {
     import("bootstrap/dist/js/bootstrap");
   }
   render() {
-    const { Component, pageProps, reduxStore } = this.props;
+    const { Component, pageProps:{session, ...pageProps}, reduxStore } = this.props;
 
     return (
       <Provider store={reduxStore}>
+        <SessionProvider session={session}>
           <Layout>
             <Component {...pageProps} />
           </Layout>
+        </SessionProvider>
       </Provider>
     );
   }

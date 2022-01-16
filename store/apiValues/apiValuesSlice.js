@@ -14,7 +14,7 @@ let initialState = {
   maxBaths: 0,
   minRooms: 0,
   maxRooms: 0,
-  currentPage: 10,
+  currentPage: 1,
 };
 
 export const getApiSaleValues = createAsyncThunk(
@@ -72,7 +72,9 @@ const apiValuesSlice = createSlice({
       state.minRooms = Math.min(...roomValues);
       state.maxRooms = Math.max(...roomValues);
     },
-    
+    setSearchPage: (state, action) => {
+      state.currentPage = action.payload;
+    }
   },
   extraReducers: {
     [getApiSaleValues.fulfilled]: (state, action) => {
@@ -93,5 +95,5 @@ const apiValuesSlice = createSlice({
   },
 });
 
-export const { storeForSaleProps, storeForRentProps } = apiValuesSlice.actions;
+export const { storeForSaleProps, storeForRentProps, setSearchPage } = apiValuesSlice.actions;
 export default apiValuesSlice.reducer;

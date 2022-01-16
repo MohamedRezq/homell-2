@@ -2,7 +2,6 @@ import { Carousel,  } from "react-bootstrap";
 import banner from 'assets/banner.jpg';
 
 const FeatureCarousel = ({ images }) => {
-  console.log("images: ", images)
   return (
     <div>
       <Carousel fade>
@@ -15,7 +14,7 @@ const FeatureCarousel = ({ images }) => {
             height={500}
           />
           <Carousel.Caption>
-            <h4>{img.title}</h4>
+            <h6 className="text-white">{img.title}</h6>
           </Carousel.Caption>
         </Carousel.Item>
         ))}

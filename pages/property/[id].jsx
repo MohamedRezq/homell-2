@@ -2,11 +2,12 @@ import FloatingSocialBar from "components/FloatingSocialBar";
 import Head from "next/head";
 import { useEffect } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
-import { getDetailedProp } from "utils/bayutAPI";
+import { getDetailedProp, getRelatedProps } from "utils/bayutAPI";
 import { connect } from "react-redux";
 import FeatureCarousel from "sections/FeatureCarousel";
+import FeatureSection from "sections/FeatureSection";
 
-const Page = ({ propShown }) => {
+const Page = ({ propShown, relatedProps }) => {
   useEffect(() => {}, []);
   return (
     <Container className="lg-container">
@@ -36,40 +37,36 @@ const Page = ({ propShown }) => {
               <tbody>
                 <tr>
                   <td>State: </td>
-                  <td>{propShown.state}</td>
+                  <td>{propShown.state ? propShown.state : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Purpose: </td>
-                  <td>{propShown.purpose}</td>
+                  <td>{propShown.purpose ? propShown.purpose : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Price: </td>
                   <td>
-                    {propShown.price
-                      .toString()
-                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                    UAD
+                    {propShown.price ? `${propShown.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} UAD` : "Not Detected"}
                   </td>
                 </tr>
                 <tr>
                   <td>Product: </td>
-                  <td>{propShown.product}</td>
+                  <td>{propShown.product ? propShown.product : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Title: </td>
-                  <td>{propShown.title}</td>
+                  <td>{propShown.title ? propShown.title : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Created At: </td>
-                  <td>{propShown.title}</td>
                 </tr>
                 <tr>
                   <td>No. of Rooms: </td>
-                  <td>{propShown.rooms}</td>
+                  <td>{propShown.rooms ? propShown.rooms : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>No. of Baths: </td>
-                  <td>{propShown.baths}</td>
+                  <td>{propShown.baths ? propShown.baths : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Furnsishing Status: </td>
@@ -80,30 +77,30 @@ const Page = ({ propShown }) => {
                   </td>
                 </tr>
                 <tr>
-                  <td>Area: </td>
+                  <td>Area (m<sup>2</sup>): </td>
                   <td>
-                    {propShown.area.toFixed(0)} m<sup>2</sup>
+                    {propShown.area ? `${propShown.area.toFixed(0)}` : "Not Detected"}
                   </td>
                 </tr>
                 <tr>
                   <td>Owner: </td>
-                  <td>{propShown.contactName}</td>
+                  <td>{propShown.contactName ? propShown.contactName : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Mobile Phone: </td>
-                  <td>{propShown.phoneNumber.mobile}</td>
+                  <td>{(propShown.phoneNumber.mobile) ? propShown.phoneNumber.mobile : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Phone: </td>
-                  <td>{propShown.phoneNumber.phone}</td>
+                  <td>{propShown.phoneNumber.phone ? propShown.phoneNumber.phone : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Whatsapp: </td>
-                  <td>{propShown.phoneNumber.whatsapp}</td>
+                  <td>{propShown.phoneNumber.whatsapp ? propShown.phoneNumber.whatsapp : "Not Detected"}</td>
                 </tr>
                 <tr>
                   <td>Agency: </td>
-                  <td>{propShown.agency.name}</td>
+                  <td>{propShown.agency.name ? propShown.agency.name : "Not Detected"}</td>
                 </tr>
               </tbody>
             </Table>
@@ -116,8 +113,7 @@ const Page = ({ propShown }) => {
             <div className="px-2">{propShown.description}</div>
           </Col>
           <Col xs={12} className="d-flex flex-column my-5">
-            <h4 className="px-3 mb-4">Related Properties</h4>
-            <div className="px-2">{propShown.description}</div>
+            <div className="px-2"><FeatureSection relatedProps={relatedProps} /></div>
           </Col>
         </Row>
       </div>
@@ -131,9 +127,11 @@ export default connect(mapStateToProps, mapDispatchToProps)(Page);
 
 export async function getServerSideProps({ query }) {
   const propShown = await getDetailedProp(query.id);
+  const relatedProps = await getRelatedProps(propShown.purpose, propShown.price);
   return {
     props: {
       propShown: propShown,
+      relatedProps: relatedProps.hits,
     },
   };
 }

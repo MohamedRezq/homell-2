@@ -7,7 +7,7 @@ import {
   DropdownButton,
   Button,
   Dropdown,
-  DropdownToggle
+  DropdownToggle,
 } from "react-bootstrap";
 import DropDownContent from "./DropDownContent";
 import SearchBar from "./SearchBar";
@@ -15,8 +15,10 @@ import usaFlag from "assets/usa_flag.png";
 import uaeFlag from "assets/uae_flag.png";
 import Image from "next/image";
 import Link from "next/link";
+import { useSession, signIn, signOut } from "next-auth/react";
 
 const NavBar = () => {
+  const { data: session } = useSession();
   return (
     <div className="position-sticky NavBar" style={{ zIndex: "100", top: 0 }}>
       <Navbar
@@ -27,7 +29,7 @@ const NavBar = () => {
         className="py-3"
       >
         <Container>
-          <Navbar.Brand href="#home" className="logoText">
+          <Navbar.Brand href="/" className="logoText">
             <h4>HOMELL</h4>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -54,7 +56,7 @@ const NavBar = () => {
                   variant="info"
                   size="lg"
                 >
-                  <DropDownContent forWhat="Rent"/>
+                  <DropDownContent forWhat="Rent" />
                 </DropdownButton>
                 <DropdownButton
                   as={ButtonGroup}
@@ -62,15 +64,47 @@ const NavBar = () => {
                   id="bg-nested-dropdown"
                   variant="info"
                   size="lg"
-                >
-                </DropdownButton>
+                ></DropdownButton>
               </ButtonGroup>
             </div>
             <div className="d-flex align-items-center h-100">
-              <div className="d-flex">
-                <div className="px-2 my-auto"><Link href=""><a className="text-white" style={{textDecoration: "none"}}>Log In</a></Link></div>
-                <Link href=""><a><Button variant="dark">Register</Button></a></Link>
-              </div>
+              {session ? (
+                <>
+                             {" "}
+                  <Link href="api/auth/signout">
+                                 {" "}
+                    <a>
+                                     {" "}
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          signOut();
+                        }}
+                      >
+                        Sign Out
+                      </button>
+                    </a>
+                  </Link>
+                </>
+              ) : (
+                <div className="d-flex">
+                  <div className="px-2 my-auto">
+                    <Link href="api/auth/signin">
+                      <a
+                        className="text-white"
+                        style={{ textDecoration: "none" }}
+                      >
+                        Log In
+                      </a>
+                    </Link>
+                  </div>
+                  <Link href="">
+                    <a>
+                      <Button variant="dark">Register</Button>
+                    </a>
+                  </Link>
+                </div>
+              )}
             </div>
           </Navbar.Collapse>
         </Container>

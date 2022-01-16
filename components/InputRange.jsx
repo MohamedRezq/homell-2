@@ -1,13 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Range, getTrackBackground } from "react-range";
-
-const InputRange = ({min=100000, max=1500000}) => {
+import { connect } from "react-redux";
+import {
+  filterByPrice,
+  filterByArea,
+  filterByBaths,
+  filterByRooms,
+} from "store/userValues/userValuesSlice";
+const InputRange = ({
+  min = 100000,
+  max = 1500000,
+  filterOn = "price",
+  filterByPrice,
+  filterByArea,
+  filterByBaths,
+  filterByRooms,
+}) => {
   const MIN = min.toFixed(0);
   const MAX = max.toFixed(0);
-  let STEP=  1;
-  if ((max-min)>1000){STEP = 100;}
-  else if ((max-min) > 100){STEP = 10;}
-  else {STEP = 1;}
+  let STEP = 1;
+  if (max - min > 1000) {
+    STEP = 100;
+  } else if (max - min > 100) {
+    STEP = 10;
+  } else {
+    STEP = 1;
+  }
   const [values, setValues] = useState([MIN, MAX]);
   return (
     <div
@@ -15,7 +33,7 @@ const InputRange = ({min=100000, max=1500000}) => {
         display: "flex",
         justifyContent: "center",
         flexWrap: "wrap",
-        width: "100%"
+        width: "100%",
       }}
     >
       <Range
@@ -26,6 +44,22 @@ const InputRange = ({min=100000, max=1500000}) => {
         max={MAX}
         onChange={(values) => {
           setValues(values);
+          switch (filterOn) {
+            case "price":
+              filterByPrice(values);
+              break;
+            case "area":
+              filterByArea(values);
+              break;
+            case "baths":
+              filterByBaths(values);
+              break;
+            case "rooms":
+              filterByRooms(values);
+              break;
+            default:
+              break;
+          }
         }}
         renderTrack={({ props, children }) => (
           <div
@@ -83,15 +117,11 @@ const InputRange = ({min=100000, max=1500000}) => {
         )}
       />
       <output style={{ marginTop: "30px", fontSize: "10pt" }} id="output">
-        <span
-          className="bg-info p-2 rounded-pill"
-        >
+        <span className="bg-info p-2 rounded-pill">
           Min: {values[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </span>
         <i class="fas fa-long-arrow-alt-right mx-3"></i>
-        <span
-          className="bg-info p-2 rounded-pill"
-        >
+        <span className="bg-info p-2 rounded-pill">
           Max: {values[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </span>
       </output>
@@ -99,4 +129,12 @@ const InputRange = ({min=100000, max=1500000}) => {
   );
 };
 
-export default InputRange;
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = {
+  filterByPrice,
+  filterByArea,
+  filterByBaths,
+  filterByRooms,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(InputRange);

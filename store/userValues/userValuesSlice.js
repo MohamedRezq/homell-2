@@ -1,16 +1,17 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 let initialState = {
-  purpose: "for-sale",
-  minPrice: 0,
-  maxPrice: 0,
-  noRooms: 0,
-  noBaths: 0,
-  minArea: 0,
-  maxArea: 0,
-  furnishingStatus: "unfurnished",
-  typeId: 4, //apartments
-  rentFrequency: "monthly",
+  userPurpose: "",
+  userMinPrice: 0,
+  userMaxPrice: 0,
+  userMinRooms: 0,
+  userMaxRooms: 0,
+  userMinBaths: 0,
+  userMaxBaths: 0,
+  userMinArea: 0,
+  userMaxArea: 0,
+  userFurnishingStatus: "",
+  userTypeId: 0, //apartments
 };
 
 const userValuesSlice = createSlice({
@@ -18,44 +19,26 @@ const userValuesSlice = createSlice({
   initialState,
   reducers: {
     filterByPrice: (state, action) => {
-      state.minPrice = action.payload[0];
-      state.maxPrice = action.payload[1];
+      state.userMinPrice = action.payload[0];
+      state.userMaxPrice = action.payload[1];
     },
-    filterArea: (state, action) => {
-      state.minArea = action.payload[0];
-      state.maxArea = action.payload[1];
+    filterByArea: (state, action) => {
+      state.userMinArea = action.payload[0];
+      state.userMaxArea = action.payload[1];
     },
-    filterBaths: (state, action) => {
-      state.noBaths = action.payload;
+    filterByBaths: (state, action) => {
+      state.userMinBaths = action.payload[0];
+      state.userMaxBaths = action.payload[1];
     },
-    filterRooms: (state, action) => {
-      state.noRooms = action.payload;
+    filterByRooms: (state, action) => {
+      state.userMinRooms = action.payload[0];
+      state.userMaxRooms = action.payload[1];
     },
-    filterFurnishStatus: (state, action) => {
-      state.furnishingStatus = action.payload;
+    filterByFurnishStatus: (state, action) => {
+      state.userFurnishingStatus = action.payload;
     },
-    filterType: (state, action) => {
-      switch (action.payload) {
-        case "Apartment":
-          state.typeId = 4;
-          break;
-        case "Townhouses":
-          state.typeId = 16;
-          break;
-        case "Villas":
-          state.typeId = 3;
-          break;
-        case "Penthouses":
-          state.typeId = 18;
-          break;
-        case "Hotel Apartments":
-          state.typeId = 21;
-          break;
-        default:
-          state.typeId = 4;
-
-          break;
-      }
+    filterByType: (state, action) => {
+      state.userTypeId = action.payload;
     },
     clearFilters: (state) => {
       state = initialState;
@@ -65,10 +48,11 @@ const userValuesSlice = createSlice({
 
 export const {
   filterByPrice,
-  filterArea,
-  filterBaths,
-  filterRooms,
-  filterFurnishStatus,
-  filterType,
+  filterByArea,
+  filterByBaths,
+  filterByRooms,
+  filterByFurnishStatus,
+  filterByType,
+  clearFilters
 } = userValuesSlice.actions;
 export default userValuesSlice.reducer;

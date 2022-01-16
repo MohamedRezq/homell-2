@@ -13,11 +13,12 @@ const HomeCard = ({
   coverPhoto,
   area,
   date,
+  id
 }) => {
   let publishDate = new Date(date);
   return (
     <Card className="my-3">
-      <Link href="">
+      <Link href={`/property/${id}`}>
         <a>
           <Card.Img variant="top" src={coverPhoto} style={{height: "300px"}} />
         </a>
