@@ -1,6 +1,6 @@
 /* ensure all pages have Bootstrap CSS */
-@import '~bootstrap/dist/css/bootstrap.min.css';
-@import 'https://fonts.googleapis.com/css?family=Montserrat:600&display=swap';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import "https://fonts.googleapis.com/css?family=Montserrat:600&display=swap";
 
 .md-container {
   max-width: 800px;
@@ -26,7 +26,7 @@
   margin-left: 10px;
 }
 
-.bannerImg{
+.bannerImg {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) !important;
   opacity: 0.5;
   z-index: 1;
@@ -50,7 +50,8 @@
   padding: 0;
 }
 
-.NavBar .dropdown, .btn-group {
+.NavBar .dropdown,
+.btn-group {
   position: static;
 }
 
@@ -67,7 +68,6 @@
   top: 30vw;
   z-index: 2;
   opacity: 70%;
-
 }
 
 .bannerText {
@@ -82,10 +82,9 @@
   left: 20px;
 }
 
-.footer a{
+.footer a {
   color: white;
 }
-
 
 /* Social Bar */
 
@@ -93,23 +92,22 @@ nav.socialBar {
   position: fixed;
   width: 30px;
   transition: all 0.3s linear;
-  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, .4);
+  box-shadow: 2px 2px 8px 0px rgba(0, 0, 0, 0.4);
   z-index: 10;
-  left:0;
-
+  left: 0;
 }
 
 nav.socialBar ul {
   margin-top: 0;
   margin-bottom: 0rem;
   list-style: none;
-  color:rgba(0, 0, 0, .3);
+  color: rgba(0, 0, 0, 0.3);
   padding-left: 0;
 }
 
 nav.socialBar li {
   height: 45px;
-  position: relative
+  position: relative;
 }
 
 nav.socialBar li a {
@@ -119,13 +117,13 @@ nav.socialBar li a {
   width: 100%;
   line-height: 45px;
   padding-left: 25%;
-  border-bottom: 1px solid rgba(0, 0, 0, .4);
-  transition: all .3s linear;
-  text-decoration: none !important
+  border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+  transition: all 0.3s linear;
+  text-decoration: none !important;
 }
 
 nav.socialBar li:nth-child(1) a {
-  background: #4267B2
+  background: #4267b2;
 }
 
 /*nav.socialBar li:nth-child(2) a {
@@ -133,50 +131,50 @@ nav.socialBar li:nth-child(1) a {
 }*/
 
 nav.socialBar li:nth-child(2) a {
-  background: #E1306C
+  background: #e1306c;
 }
 
 nav.socialBar li:nth-child(3) a {
-  background: #2867B2
+  background: #2867b2;
 }
 
 nav.socialBar li:nth-child(4) a {
-  background: #333
+  background: #333;
 }
 
 nav.socialBar li:nth-child(5) a {
-  background: #ff0000
+  background: #ff0000;
 }
 
 nav.socialBar li a i {
   position: absolute;
   top: 14px;
-  font-size: 15px
+  font-size: 15px;
 }
 
 nav.socialBar ul li a span {
   display: none;
   font-weight: bold;
   letter-spacing: 1px;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 
 nav.socialBar a:hover {
   z-index: 1;
   width: 160px;
-  border-bottom: 1px solid rgba(0, 0, 0, .5);
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3)
+  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 nav.socialBar ul li:hover a span {
   padding-left: 20%;
   display: block;
-  font-size: 15px
+  font-size: 15px;
 }
 
 .homeCardSellerType .btn-sm {
   padding: 5px 5px;
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .filterBtn .dropdown-menu.show {
@@ -184,7 +182,8 @@ nav.socialBar ul li:hover a span {
   padding: 0;
 }
 
-.filterBtn .dropdown, .btn-group {
+.filterBtn .dropdown,
+.btn-group {
   position: static;
 }
 
@@ -196,27 +195,54 @@ nav.socialBar ul li:hover a span {
   display: none;
 }
 
-.pagination li a{
- 
+.pagination li a {
 }
 
-.pagination li:nth-child(1) a{
+.pagination li:nth-child(1) a {
   border-bottom-left-radius: 25px !important;
   border-top-left-radius: 25px !important;
   font-weight: bold;
 }
 
-.pagination li:last-child a{
+.pagination li:last-child a {
   border-bottom-right-radius: 25px !important;
   border-top-right-radius: 25px !important;
   font-weight: bold;
 }
-
+.propDataTable table {
+  border: none;
+}
 .propDataTable td {
   font-size: 11pt;
   padding: 5px 5px;
+  background-color: white;
+  border: none;
 }
 
 .propDataTable tr td:first-child {
   font-weight: bold;
+}
+
+
+.cardViewBtn{
+  display: none;
+}
+
+.card:hover .cardViewBtn{
+  display: inline-block;
+  z-index: 3;
+}
+
+.card:hover .cardImage{
+  filter: brightness(50%) !important;
+  z-index: 2;
+}
+
+.relatedProps a{
+  text-decoration: none;
+  color: black;
+}
+
+.relatedProps .card:hover img{
+  filter: brightness(0.6)
 }

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const FeatureSection = ({ relatedProps }) => {
   return (
-    <section class="pt-5 pb-5">
+    <section class="pt-5 pb-5 relatedProps">
       <div class="container">
         <div class="row">
           <div class="col-6">

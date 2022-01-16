@@ -7,7 +7,7 @@ const AlertBar = () => {
   if (show) {
     return (
       <Alert
-        className="m-0 py-2 d-none d-md-block"
+        className="m-0 py-3 d-none d-md-block"
         variant="secondary"
         onClose={() => setShow(false)}
         dismissible

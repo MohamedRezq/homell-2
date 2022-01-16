@@ -13,14 +13,31 @@ const HomeCard = ({
   coverPhoto,
   area,
   date,
-  id
+  id,
 }) => {
   let publishDate = new Date(date);
   return (
-    <Card className="my-3">
-      <Link href={`/property/${id}`}>
+    <Card className="my-3 homeCard">
+      <Link href={`/property/${id}`} passHref>
         <a>
-          <Card.Img variant="top" src={coverPhoto} style={{height: "300px"}} />
+          <Card.ImgOverlay
+            className="d-flex justify-content-center align-items-center"
+            style={{ height: "300px" }}
+          >
+            <Button
+              variant="dark"
+              className="cardViewBtn px-5"
+              href={`/property/${id}`}
+            >
+              View
+            </Button>
+          </Card.ImgOverlay>
+          <Card.Img
+            variant="top"
+            src={coverPhoto}
+            style={{ height: "300px" }}
+            className="cardImage"
+          />
         </a>
       </Link>
       <Card.Body>
@@ -39,16 +56,23 @@ const HomeCard = ({
             </span>
           </div>
         </Card.Title>
-        <Card.Text style={{ fontSize: "12pt", fontWeight: "bold" }}>
-          {title}
-        </Card.Text>
-        <Card.Text className="d-flex justify-content-between" style={{ fontSize: "8pt" }}>
+        <Link href={`/property/${id}`} passHref>
+          <a style={{textDecoration: "none", color: "black"}}>
+            <Card.Text style={{ fontSize: "12pt", fontWeight: "bold" }} className="py-1">
+              {title}
+            </Card.Text>
+          </a>
+        </Link>
+        <Card.Text
+          className="d-flex justify-content-between"
+          style={{ fontSize: "8pt" }}
+        >
           <div>
             {address.map((loc, i) => (
               <span>{loc.name}, </span>
             ))}
           </div>
-          <div className="my-auto px-2" style={{whiteSpace: "nowrap"}}>
+          <div className="my-auto px-2" style={{ whiteSpace: "nowrap" }}>
             {dateFormat(publishDate, "dd mmm")}
           </div>
         </Card.Text>
