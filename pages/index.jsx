@@ -1,10 +1,10 @@
-import FloatingSocialBar from "./components/FloatingSocialBar";
+import FloatingSocialBar from "./../components/FloatingSocialBar";
 import Head from "next/head";
 import { useEffect } from "react";
 import { Container } from "react-bootstrap";
-import CardSection from "./sections/CardSection";
-import { getPropsForSale } from "./utils/bayutAPI";
-import { storeForSaleProps } from "./store/apiValues/apiValuesSlice";
+import CardSection from "./../sections/CardSection";
+import { getPropsForSale } from "./../utils/bayutAPI";
+import { storeForSaleProps } from "./../store/apiValues/apiValuesSlice";
 import { connect } from "react-redux";
 
 const Home = ({ propsForSale, storeForSaleProps }) => {

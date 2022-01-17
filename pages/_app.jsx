@@ -3,7 +3,7 @@ import React from "react";
 import NextApp from "next/app";
 import withReduxStore from "../lib/with-redux-store";
 import { Provider } from "react-redux";
-import Layout from "./components/layout";
+import Layout from "./../components/Layout";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SessionProvider } from "next-auth/react";
