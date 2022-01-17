@@ -86,7 +86,7 @@ const FilterDropDownContent = ({
                     filterByFurnishStatus(e.target.value);
                   }}
                 />
-                <label className="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" htmlFor="flexCheckDefault">
                   Un-Furnished
                 </label>
               </div>
@@ -102,7 +102,7 @@ const FilterDropDownContent = ({
                     filterByFurnishStatus(e.target.value);
                   }}
                 />
-                <label className="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" htmlFor="flexCheckChecked">
                   Furnished
                 </label>
               </div>
@@ -118,7 +118,7 @@ const FilterDropDownContent = ({
                     filterByFurnishStatus("");
                   }}
                 />
-                <label className="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" htmlFor="flexCheckChecked">
                   Both
                 </label>
               </div>
