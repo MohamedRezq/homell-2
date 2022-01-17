@@ -26,9 +26,7 @@ const CardSection = ({ propsForShow, currentPage }) => {
           </Col>
         ))}
       </Row>
-      <div className="paginationDiv d-flex justify-content-center my-5 align-content-center mx-5 mx-md-1">
-        <PaginationBar curntPage={currentPage} />
-      </div>
+
     </div>
   );
 };

@@ -10,7 +10,7 @@ const Footer = () => {
       className="bg-dark pt-5 text-white footer"
       style={{ marginTop: "150px", backgroundImage: `url(${footerSky.src})` }}
     >
-      <Row xs={1} lg={4}>
+      <Row xs={1} lg={4} className="mx-0">
         <Col className="position-relative footerImgHolder d-none d-lg-block">
           <Image src={bannerImg} />
         </Col>
@@ -77,13 +77,13 @@ const FooterSection = () => {
         </div>
         <div className="d-flex flex-column align-items-center align-items-lg-start">
           <div>
-            <a href="#">REZQ</a>
+            <a href="">REZQ</a>
           </div>
           <div>
-            <a href="#">Visit My Website</a>
+            <a href="">Visit My Website</a>
           </div>
           <div>
-            <a href="#">My Recent Blogs</a>
+            <a href="">My Recent Blogs</a>
           </div>
         </div>
       </div>
