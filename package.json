@@ -7,7 +7,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.7.1",
-    "@swc/core-win32-x64-msvc": "^1.2.129",
     "axios": "^0.24.0",
     "bootstrap": "^4.4.1",
     "dateformat": "^5.0.2",
