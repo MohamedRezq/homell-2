@@ -14,9 +14,9 @@ const Footer = () => {
         <Col className="position-relative footerImgHolder d-none d-lg-block">
           <Image src={bannerImg} />
         </Col>
-        <FooterSection />
-        <FooterSection />
-        <FooterSection />
+        <FooterSection colTitle="About Developer" colELements={["My Portfolio", "My Recent Projects"]} />
+        <FooterSection colTitle="Contact" colELements={["11311 Cairo, Egypt","mohamed.rizq99@gmail.com", "+20 0109 941 9431"]} />
+        <FooterSection colTitle="LEGAL" colELements={["Terms & Conditions", "Privacy Policy", "Terms of use"]} />
         <Col></Col>
         <Col lg={9}>
           <div className="mx-2 my-2">
@@ -68,23 +68,19 @@ const Footer = () => {
 
 export default Footer;
 
-const FooterSection = () => {
+const FooterSection = ({colTitle, colELements}) => {
   return (
     <Col className="px-5 my-4 my-lg-2">
       <div className="d-flex flex-column align-items-center align-items-lg-start">
         <div style={{ fontWeight: "bold" }} className="my-2">
-          Author
+          {colTitle}
         </div>
         <div className="d-flex flex-column align-items-center align-items-lg-start">
-          <div>
-            <a href="">REZQ</a>
+          {colELements.map((elem, i) => (
+            <div key={i}>
+            <a href="">{elem}</a>
           </div>
-          <div>
-            <a href="">Visit My Website</a>
-          </div>
-          <div>
-            <a href="">My Recent Blogs</a>
-          </div>
+          ))}
         </div>
       </div>
     </Col>
