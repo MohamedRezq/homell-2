@@ -9,7 +9,6 @@ headers: {
 */
 
 export const fetchBayutAPI = async (url) => {
-  console.log("I am fetching: ", url);
   const { data } = await axios.get(url, {
     headers: {
       "x-rapidapi-host": "bayut.p.rapidapi.com",
@@ -56,7 +55,6 @@ export const filterProps = async (
   page = "1"
 ) => {
   const count = 20;
-  console.log("Hey I am running with pageNo = ", page);
   let queryUrl = `${baseUrl}/properties/list?locationExternalIDs=5002&hitsPerPage=${count}`;
   if (userPurpose != "") {
     queryUrl += `&purpose=${userPurpose}`;
