@@ -37,7 +37,7 @@ const DropDownContent = ({forWhat="Sale"}) => {
                   </div>
                   <div className="py-1" style={{ fontWeight: "bold" }}>
                     <a href="">
-                      Show All <i class="fas fa-angle-double-right"></i>{" "}
+                      Show All <i className="fas fa-angle-double-right"></i>{" "}
                     </a>
                   </div>
                 </Col>
@@ -118,7 +118,7 @@ const DropDownContent = ({forWhat="Sale"}) => {
                   </div>
                   <div className="py-1" style={{ fontWeight: "bold" }}>
                     <a href="">
-                      Show All <i class="fas fa-angle-double-right"></i>{" "}
+                      Show All <i className="fas fa-angle-double-right"></i>{" "}
                     </a>
                   </div>
                 </Col>

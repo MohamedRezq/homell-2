@@ -49,32 +49,35 @@ const HomeCard = ({
             {price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} UAD
           </div>
           <div style={{ fontSize: "0.75rem" }} className="my-auto">
-            {baths} <i class="fas fa-bath mx-1"></i> {rooms}{" "}
-            <i class="fas fa-bed mx-1 mr-2"></i> {area.toFixed(0)}{" "}
+            {baths} <i className="fas fa-bath mx-1"></i> {rooms}{" "}
+            <i className="fas fa-bed mx-1 mr-2"></i> {area.toFixed(0)}{" "}
             <span>
               m<sup>2</sup>
             </span>
           </div>
         </Card.Title>
-        <Link href={`/property/${id}`} passHref>
-          <a style={{textDecoration: "none", color: "black"}}>
-            <Card.Text style={{ fontSize: "12pt", fontWeight: "bold" }} className="py-1">
-              {title}
-            </Card.Text>
-          </a>
-        </Link>
+
+        <Card.Text
+          style={{ fontSize: "12pt", fontWeight: "bold" }}
+          className="py-1"
+        >
+          <Link href={`/property/${id}`} passHref>
+            <a style={{ textDecoration: "none", color: "black" }}>{title}</a>
+          </Link>
+        </Card.Text>
+
         <Card.Text
           className="d-flex justify-content-between"
           style={{ fontSize: "8pt" }}
         >
-          <div>
+          <p>
             {address.map((loc, i) => (
-              <span>{loc.name}, </span>
+              <span key={i}>{loc.name}, </span>
             ))}
-          </div>
-          <div className="my-auto px-2" style={{ whiteSpace: "nowrap" }}>
+          </p>
+          <p className="my-auto px-2" style={{ whiteSpace: "nowrap" }}>
             {dateFormat(publishDate, "dd mmm")}
-          </div>
+          </p>
         </Card.Text>
       </Card.Body>
 
@@ -92,16 +95,15 @@ const HomeCard = ({
               </a>
             </Link>
           </div>
-          <Link href="">
-            <a className="text-muted py-auto my-auto">
-              <div
-                className="text-muted py-auto my-auto"
-                style={{ fontSize: "10pt" }}
-              >
-                Development Group
-              </div>
-            </a>
-          </Link>
+
+          <p
+            className="text-muted py-auto my-auto"
+            style={{ fontSize: "10pt" }}
+          >
+            <Link href="">
+              <a className="text-muted py-auto my-auto">Development Group</a>
+            </Link>
+          </p>
         </div>
       </Card.Footer>
     </Card>

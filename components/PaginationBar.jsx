@@ -45,10 +45,15 @@ const PaginationBar = ({
         <Pagination.Prev />
         {pages.map((page, i) => {
           if (page == curntPage)
-            return <Pagination.Item active>{page}</Pagination.Item>;
+            return (
+              <Pagination.Item active key={i}>
+                {page}
+              </Pagination.Item>
+            );
           else
             return (
               <Pagination.Item
+                key={i}
                 onClick={(e) => {
                   e.preventDefault();
                   router.push(
@@ -81,8 +86,8 @@ const PaginationBar = ({
         <Pagination.Ellipsis />
         {pages.map((page, i) => {
           if (page == curntPage)
-            return <Pagination.Item active>{page}</Pagination.Item>;
-          else return <Pagination.Item>{page}</Pagination.Item>;
+            return <Pagination.Item active key={i}>{page}</Pagination.Item>;
+          else return <Pagination.Item key={i}>{page}</Pagination.Item>;
         })}
         <Pagination.Next />
         <Pagination.Last />

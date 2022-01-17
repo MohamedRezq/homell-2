@@ -24,32 +24,32 @@ const Footer = () => {
           </div>
           <div className="d-flex flex-column flex-lg-row justify-content-between px-4 display-6">
             <div>
-              All Rights Reserved <i class="far fa-copyright"></i> 2022
+              All Rights Reserved <i className="far fa-copyright"></i> 2022
             </div>
             <div className="align-self-center my-3 my-lg-0 d-flex">
               <div>
                 <a href="">
-                  <i class="fab fa-twitter fa-lg mx-2"></i>{" "}
+                  <i className="fab fa-twitter fa-lg mx-2"></i>{" "}
                 </a>
               </div>
               <div>
                 <a href="">
-                  <i class="fab fa-facebook-square fa-lg mx-2"></i>{" "}
+                  <i className="fab fa-facebook-square fa-lg mx-2"></i>{" "}
                 </a>
               </div>
               <div>
                 <a href="">
-                  <i class="fab fa-linkedin fa-lg mx-2"></i>{" "}
+                  <i className="fab fa-linkedin fa-lg mx-2"></i>{" "}
                 </a>
               </div>
               <div>
                 <a href="">
-                  <i class="fab fa-github fa-lg mx-2"></i>{" "}
+                  <i className="fab fa-github fa-lg mx-2"></i>{" "}
                 </a>
               </div>
               <div>
                 <a href="">
-                  <i class="fab fa-youtube fa-lg mx-2"></i>{" "}
+                  <i className="fab fa-youtube fa-lg mx-2"></i>{" "}
                 </a>
               </div>
             </div>

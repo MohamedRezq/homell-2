@@ -120,7 +120,7 @@ const InputRange = ({
         <span className="bg-info p-2 rounded-pill">
           Min: {values[0].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </span>
-        <i class="fas fa-long-arrow-alt-right mx-3"></i>
+        <i className="fas fa-long-arrow-alt-right mx-3"></i>
         <span className="bg-info p-2 rounded-pill">
           Max: {values[1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
         </span>

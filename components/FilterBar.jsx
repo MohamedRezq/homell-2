@@ -11,7 +11,7 @@ const FilterBar = () => {
           title={
             <span>
               Sort By
-              <i class="fas fa-sort-alt px-2"></i>
+              <i className="fas fa-sort-alt px-2"></i>
             </span>
           }
           id="bg-nested-dropdown"
@@ -34,7 +34,7 @@ const FilterBar = () => {
             title={
               <span>
                 Filter
-                <i class="fas fa-filter px-2"></i>
+                <i className="fas fa-filter px-2"></i>
               </span>
             }
             id="bg-nested-dropdown"

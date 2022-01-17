@@ -13,8 +13,6 @@ const AlertBar = () => {
         dismissible
       >
         {/*<Alert.Heading>Oh snap! You got an error!</Alert.Heading>*/}
-        <Link href="#">
-          <a href="">
             <h6
               className="text-center alertText mb-0 fs-6"
               style={{ fontSize: "10pt", textDecoration: "underline" }}
@@ -34,8 +32,6 @@ const AlertBar = () => {
               </a>{" "}
               and it is not intended for any commercial purposes.
             </h6>
-          </a>
-        </Link>
       </Alert>
     );
   }

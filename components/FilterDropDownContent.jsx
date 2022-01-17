@@ -74,9 +74,9 @@ const FilterDropDownContent = ({
               <div className="py-2" style={{ fontWeight: "bold" }}>
                 Furnishing Status
               </div>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadio"
                   value="unfurnished"
@@ -86,13 +86,13 @@ const FilterDropDownContent = ({
                     filterByFurnishStatus(e.target.value);
                   }}
                 />
-                <label class="form-check-label" for="flexCheckDefault">
+                <label className="form-check-label" for="flexCheckDefault">
                   Un-Furnished
                 </label>
               </div>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadio"
                   value="furnished"
@@ -102,13 +102,13 @@ const FilterDropDownContent = ({
                     filterByFurnishStatus(e.target.value);
                   }}
                 />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   Furnished
                 </label>
               </div>
-              <div class="form-check">
+              <div className="form-check">
                 <input
-                  class="form-check-input"
+                  className="form-check-input"
                   type="radio"
                   name="flexRadio"
                   value=""
@@ -118,7 +118,7 @@ const FilterDropDownContent = ({
                     filterByFurnishStatus("");
                   }}
                 />
-                <label class="form-check-label" for="flexCheckChecked">
+                <label className="form-check-label" for="flexCheckChecked">
                   Both
                 </label>
               </div>
@@ -131,7 +131,7 @@ const FilterDropDownContent = ({
               </div>
               <div>
                 <select
-                  class="form-select"
+                  className="form-select"
                   aria-label="Default select example"
                   onChange={(e) => {
                     e.preventDefault();
