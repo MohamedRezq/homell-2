@@ -25,7 +25,7 @@ const Banner = () => {
       <div className="bannerTextContainer d-none d-md-flex position-absolute w-100 justify-content-center">
         <div className="w-75 mx-4">
           <h6 className="bg-dark px-2 py-3 bannerText text-center text-white">
-            Get your dream house in Egypt with the lowest prices offered by the
+            Get your dream house in UAE with the lowest prices offered by the
             top real-estate developers in the World ! <br />
             <h5 style={{ fontWeight: "bold", marginTop: "5px" }}>
               {" "}
